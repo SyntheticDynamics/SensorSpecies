@@ -1,0 +1,205 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[      7465,        204]
+NotebookOptionsPosition[      6832,        182]
+NotebookOutlinePosition[      7169,        197]
+CellTagsIndexPosition[      7126,        194]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellLabel->"In[41]:=",ExpressionUUID->"c8fd2c6e-8422-424a-b402-0e55de64c19f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SensorLin", "[", "g_", "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "gn1", ",", "nodesp", ",", " ", "nodesn", ",", "temp", ",", "temp2", ",",
+       " ", "gbipartite", ",", "maxmatching", ",", " ", "gml", ",", "  ", 
+      "NumberOfNodes", ",", " ", "sensors", ",", " ", "sensorswhere", ",", 
+      " ", "sensorslin"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"gn1", " ", "=", "g"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"nodesp", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"ToString", "[", "#", "]"}], "<>", "\"\<p\>\""}], "&"}], "/@", 
+       RowBox[{"VertexList", "[", "gn1", "]"}]}]}], ";", " ", 
+     "\[IndentingNewLine]", 
+     RowBox[{"nodesn", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"ToString", "[", "#", "]"}], "<>", "\"\<n\>\""}], "&"}], "/@", 
+       RowBox[{"VertexList", "[", "gn1", "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{
+       "create", " ", "edges", " ", "for", " ", "the", " ", "bipartite", " ", 
+        "graph"}], ",", " ", 
+       RowBox[{"e", ".", "g", "."}], ",", " ", 
+       RowBox[{"1", "\[Rule]", 
+        RowBox[{
+         RowBox[{"2", " ", "corresponds", " ", "to", " ", "1", "p"}], " ", 
+         "\[UndirectedEdge]", " ", 
+         RowBox[{"1", "n"}]}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"temp", "=", 
+      RowBox[{
+       RowBox[{"Partition", "[", 
+        RowBox[{
+         RowBox[{"EdgeList", "[", "gn1", "]"}], ",", "1"}], "]"}], "/.", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x_", "\[DirectedEdge]", " ", "y_"}], "}"}], "->", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}]}]}]}], " ", ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"temp2", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "]"}], "<>", "\"\<p\>\""}], ",", 
+          
+          RowBox[{
+           RowBox[{"ToString", "[", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "]"}], "<>", "\"\<n\>\""}]}], 
+         "}"}], "&"}], "/@", "temp"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"gbipartite", "=", 
+      RowBox[{"Graph", "[", 
+       RowBox[{
+        RowBox[{"Join", "[", 
+         RowBox[{"Join", "[", 
+          RowBox[{
+           RowBox[{"RandomSample", "[", "nodesp", "]"}], ",", " ", 
+           RowBox[{"RandomSample", "[", "nodesn", "]"}]}], "]"}], "]"}], ",", 
+        
+        RowBox[{"Flatten", "[", 
+         RowBox[{"temp2", "/.", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x_", ",", "y_"}], "}"}], "->", 
+           RowBox[{"{", 
+            RowBox[{"x", "\[UndirectedEdge]", "y"}], "}"}]}]}], "]"}], " ", 
+        ",", " ", 
+        RowBox[{"VertexLabels", "\[Rule]", "\"\<Name\>\""}], ",", " ", 
+        RowBox[{"GraphLayout", "\[Rule]", "\"\<BipartiteEmbedding\>\""}]}], 
+       "]"}]}], ";", " ", "\[IndentingNewLine]", 
+     RowBox[{"maxmatching", "=", 
+      RowBox[{"FindIndependentEdgeSet", "[", "gbipartite", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"gml", "=", 
+      RowBox[{"VertexList", "[", 
+       RowBox[{"Graph", "[", "maxmatching", "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"NumberOfNodes", "=", 
+      RowBox[{"VertexCount", "[", "gn1", "]"}]}], ";", 
+     RowBox[{"sensorswhere", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"FreeQ", "[", 
+         RowBox[{"gml", ",", 
+          RowBox[{
+           RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<p\>\""}]}], " ", 
+         "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "NumberOfNodes"}], "}"}]}], "]"}]}], ";", 
+     RowBox[{"sensorslin", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Position", "[", 
+        RowBox[{"sensorswhere", ",", "True"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"sensors", " ", "=", " ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "sensorslin", "]"}], "\[Equal]", "0"}], ",", 
+        " ", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "NumberOfNodes"}], "}"}], "]"}], ",", 
+        "sensorslin"}], "]"}]}], ";", " ", "\[IndentingNewLine]", 
+     "sensors"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SScalc", "[", 
+   RowBox[{"g_", ",", "samples_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"MSS", ",", " ", "speciesl", ",", "SensorScore"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"MSS", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"SensorLin", "[", "g", "]"}], ",", 
+        RowBox[{"{", "samples", "}"}]}], "]"}]}], ";", " ", 
+     "\[IndentingNewLine]", 
+     RowBox[{"speciesl", "  ", "=", " ", 
+      RowBox[{"VertexList", "[", "g", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"SensorScore", "=", " ", 
+      RowBox[{"N", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"Position", "[", 
+            RowBox[{"MSS", ",", " ", 
+             RowBox[{"speciesl", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}], "]"}], "]"}], "/", 
+          "samples"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", 
+           RowBox[{"VertexCount", "[", "g", "]"}]}], "}"}]}], "]"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", "SensorScore"}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{3.840150227700471*^9},
+ CellLabel->"In[38]:=",ExpressionUUID->"5f61c851-4809-49e7-87e2-48c6a0f235aa"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FullDefinition", "[", "SScalc", "]"}], " ", ">>", " ", 
+  "\"\<Sensor.mx\>\""}]], "Input",
+ CellChangeTimes->{{3.840149716283929*^9, 3.840149738424851*^9}, {
+  3.840149822660108*^9, 3.840149839388653*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"cb07ac80-b712-4b20-927d-cd7193922f35"]
+},
+WindowSize->{808, 897},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 202, 4, 30, "Input",ExpressionUUID->"c8fd2c6e-8422-424a-b402-0e55de64c19f"],
+Cell[605, 19, 5901, 153, 598, "Input",ExpressionUUID->"5f61c851-4809-49e7-87e2-48c6a0f235aa"],
+Cell[6509, 174, 319, 6, 30, "Input",ExpressionUUID->"cb07ac80-b712-4b20-927d-cd7193922f35"]
+}
+]
+*)
+

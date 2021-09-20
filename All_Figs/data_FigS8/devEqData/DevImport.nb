@@ -1,0 +1,553 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21664,        543]
+NotebookOptionsPosition[     19783,        505]
+NotebookOutlinePosition[     20120,        520]
+CellTagsIndexPosition[     20077,        517]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "SetDirectory", "[", 
+   "\"\</Users/andreaapariciomartinez/Dropbox/IM/Compartida Con \
+Marco/SensorSpeciesPNASRev1/Figures/NewFigures/Robustness/qs_r1_allNets_\
+Robustness_01/devEqData\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"existDev", "=", 
+   RowBox[{"FileNames", "[", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.834568959700398*^9, 3.8345689614812317`*^9}},
+ CellLabel->
+  "In[3264]:=",ExpressionUUID->"e28c939b-8ac4-4110-919c-febc2959c467"],
+
+Cell[BoxData["existDev"], "Input",
+ CellChangeTimes->{{3.834569636516182*^9, 3.834569637995637*^9}},
+ CellLabel->"In[86]:=",ExpressionUUID->"68698d79-35c8-4d03-a34d-557219563587"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"numsrep", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<01\>\"", ",", "\"\<02\>\"", ",", "\"\<03\>\"", ",", "\"\<04\>\"", 
+     ",", "\"\<05\>\"", ",", "\"\<06\>\"", ",", "\"\<07\>\"", ",", 
+     "\"\<08\>\"", ",", "\"\<09\>\"", ",", "\"\<10\>\"", ",", "\"\<11\>\"", 
+     ",", "\"\<12\>\"", ",", "\"\<13\>\"", ",", "\"\<14\>\"", ",", 
+     "\"\<15\>\"", ",", "\"\<16\>\"", ",", "\"\<17\>\"", ",", "\"\<18\>\"", 
+     ",", "\"\<19\>\"", ",", "\"\<20\>\"", ",", "\"\<21\>\"", ",", 
+     "\"\<22\>\"", ",", "\"\<23\>\"", ",", "\"\<24\>\"", ",", "\"\<25\>\"", 
+     ",", "\"\<26\>\"", ",", "\"\<27\>\"", ",", "\"\<28\>\"", ",", 
+     "\"\<29\>\"", ",", "\"\<30\>\"", ",", "\"\<31\>\"", ",", "\"\<32\>\"", 
+     ",", "\"\<33\>\"", ",", "\"\<34\>\"", ",", "\"\<35\>\"", ",", 
+     "\"\<36\>\"", ",", "\"\<37\>\"", ",", "\"\<38\>\"", ",", "\"\<39\>\"", 
+     ",", "\"\<40\>\"", ",", "\"\<41\>\"", ",", "\"\<42\>\"", ",", 
+     "\"\<43\>\"", ",", "\"\<44\>\"", ",", "\"\<45\>\"", ",", "\"\<46\>\"", 
+     ",", "\"\<47\>\"", ",", "\"\<48\>\"", ",", "\"\<49\>\"", ",", 
+     "\"\<50\>\""}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[83]:=",ExpressionUUID->"f9e216c2-cc15-4f0a-ab4a-e4f241e2b076"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"DevEb00", " ", "=", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Devs", "=", 
+         RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"thisFile", " ", "=", " ", 
+               RowBox[{"j", "<>", "\"\<_DevEqO2_B00_\>\"", "<>", 
+                RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}],
+               ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"MemberQ", "[", 
+                 RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+                RowBox[{"Mean", "[", 
+                 RowBox[{
+                  RowBox[{"Import", "[", 
+                   RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                  "Flatten"}], "]"}]}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Mean", "@", 
+         RowBox[{"Devs", "\[LeftDoubleBracket]", 
+          RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Export", "[", 
+    RowBox[{"\"\<DevEb00.mx\>\"", ",", "DevEb00"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DevEb01", " ", "=", 
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Devs", "=", 
+         RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"thisFile", " ", "=", " ", 
+               RowBox[{"j", "<>", "\"\<_DevEqO2_B01_\>\"", "<>", 
+                RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}],
+               ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"MemberQ", "[", 
+                 RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+                RowBox[{"Mean", "[", 
+                 RowBox[{
+                  RowBox[{"Import", "[", 
+                   RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                  "Flatten"}], "]"}]}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Mean", "@", 
+         RowBox[{"Devs", "\[LeftDoubleBracket]", 
+          RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Export", "[", 
+    RowBox[{"\"\<DevEb01.mx\>\"", ",", "DevEb01"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8345083771948853`*^9, 3.834508420082073*^9}, {
+   3.834508481061737*^9, 3.834508487220585*^9}, {3.8345115540273314`*^9, 
+   3.8345115786632843`*^9}, 
+   3.8345689486840353`*^9},ExpressionUUID->"65b094aa-7a4e-495b-9493-\
+2d282a3371cb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DevEg00", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{"j", "<>", "\"\<_DevEqO2_g00_\>\"", "<>", 
+              RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEg00.mx\>\"", ",", "DevEg00"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DevEg01", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{"j", "<>", "\"\<_DevEqO2_g01_\>\"", "<>", 
+              RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEg01.mx\>\"", ",", "DevEg01"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.834511601025456*^9, 3.8345116285292873`*^9}},
+ CellLabel->
+  "In[849]:=",ExpressionUUID->"8ffe8904-7a08-4a1f-a443-2ce9d9e8f02a"],
+
+Cell[BoxData["\<\"DevEg00.mx\"\>"], "Output",
+ CellChangeTimes->{3.834511634372819*^9, 3.834511665097784*^9},
+ CellLabel->
+  "Out[850]=",ExpressionUUID->"3c942f8b-ca46-43bc-a114-4c1489477fea"],
+
+Cell[BoxData["\<\"DevEg01.mx\"\>"], "Output",
+ CellChangeTimes->{3.834511634372819*^9, 3.834511673391858*^9},
+ CellLabel->
+  "Out[852]=",ExpressionUUID->"4554535f-a6d5-44e1-b323-462b70c9d342"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DevEd0", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{"j", "<>", "\"\<_DevEqO2_d0_\>\"", "<>", 
+              RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEd0.mx\>\"", ",", "DevEd0"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DevEd1", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{"j", "<>", "\"\<_DevEqO2_d1_\>\"", "<>", 
+              RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEd1.mx\>\"", ",", "DevEd1"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8345117082454233`*^9, 3.8345117167444057`*^9}},
+ CellLabel->
+  "In[853]:=",ExpressionUUID->"7f9ff420-071c-4217-9fbc-4b9eb93b9c80"],
+
+Cell[BoxData["\<\"DevEd0.mx\"\>"], "Output",
+ CellChangeTimes->{3.834511725055607*^9},
+ CellLabel->
+  "Out[854]=",ExpressionUUID->"936f2fa5-a536-41cc-8291-aeaa27e6c02c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DevEh1", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{"j", "<>", "\"\<_DevEqO2_h1_\>\"", "<>", 
+              RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEh1.mx\>\"", ",", "DevEh1"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.834575835888132*^9, 3.8345758400146837`*^9}},
+ CellLabel->
+  "In[126]:=",ExpressionUUID->"890b9f5d-2c57-4853-b697-0b5c7bb8b8a8"],
+
+Cell[BoxData["\<\"DevEh1.mx\"\>"], "Output",
+ CellChangeTimes->{{3.834575854066902*^9, 3.834575870837389*^9}},
+ CellLabel->
+  "Out[127]=",ExpressionUUID->"c05ff64c-a7fb-4481-ae7f-76c5744ffaa0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DevEh0", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{
+             "j", "<>", "\"\<_DevEqO2_h0_\>\"", "<>", "i", "<>", 
+              "\"\<.csv\>\""}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEh0.mx\>\"", ",", "DevEh0"}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.8345117379002438`*^9, 3.834511744977803*^9}, {
+   3.8345118973741083`*^9, 3.834511942843606*^9}, 3.834569671780446*^9, {
+   3.8345697132283363`*^9, 3.8345697156415863`*^9}, {3.8345701481536694`*^9, 
+   3.834570156250092*^9}, {3.834570192216464*^9, 3.834570219118178*^9}, {
+   3.834575874826376*^9, 3.834575880961405*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"8fc353a5-e139-4e6d-a645-3d604993da61"],
+
+Cell[BoxData["\<\"DevEh0.mx\"\>"], "Output",
+ CellChangeTimes->{
+  3.834569268423991*^9, 3.83456972075563*^9, 3.8345701608976316`*^9, {
+   3.834570200789307*^9, 3.834570225158935*^9}, 3.834575890173842*^9},
+ CellLabel->
+  "Out[129]=",ExpressionUUID->"dc709efd-1e7e-4dfd-99fd-c1ffacf4e965"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"DevEs0", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{"j", "<>", "\"\<_DevEqO2_s0_\>\"", "<>", 
+              RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEs0.mx\>\"", ",", "DevEs0"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DevEs1", " ", "=", 
+   RowBox[{"Table", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Devs", "=", 
+       RowBox[{"DeleteCases", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"thisFile", " ", "=", " ", 
+             RowBox[{"j", "<>", "\"\<_DevEqO2_s1_\>\"", "<>", 
+              RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.csv\>\""}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"existDev", ",", " ", "thisFile"}], "]"}], ",", 
+              RowBox[{"Mean", "[", 
+               RowBox[{
+                RowBox[{"Import", "[", 
+                 RowBox[{"thisFile", ",", "\"\<Table\>\""}], "]"}], "//", 
+                "Flatten"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "numsrep"}], "}"}]}], "]"}], ",", "Null"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Devs", "\[LeftDoubleBracket]", 
+        RowBox[{"1", ";;", "14"}], "\[RightDoubleBracket]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "filenames"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<DevEs1.mx\>\"", ",", "DevEs1"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8345117976568604`*^9, 3.8345118476016293`*^9}},
+ CellLabel->
+  "In[130]:=",ExpressionUUID->"a2361e19-84ff-4d53-9cb1-5bcbd0a8c746"],
+
+Cell[BoxData["\<\"DevEs0.mx\"\>"], "Output",
+ CellChangeTimes->{3.834575898267517*^9},
+ CellLabel->
+  "Out[131]=",ExpressionUUID->"c480d377-0887-4843-8ffb-fcb6f0d6acd6"],
+
+Cell[BoxData["\<\"DevEs1.mx\"\>"], "Output",
+ CellChangeTimes->{3.8345759050133743`*^9},
+ CellLabel->
+  "Out[133]=",ExpressionUUID->"baeecaf9-1bdf-4826-a63c-aee56cf4d200"]
+}, Open  ]]
+},
+WindowSize->{808, 655},
+WindowMargins->{{Automatic, 181}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 496, 12, 115, "Input",ExpressionUUID->"e28c939b-8ac4-4110-919c-febc2959c467"],
+Cell[1057, 34, 179, 2, 30, "Input",ExpressionUUID->"68698d79-35c8-4d03-a34d-557219563587"],
+Cell[1239, 38, 1220, 20, 94, "Input",ExpressionUUID->"f9e216c2-cc15-4f0a-ab4a-e4f241e2b076"],
+Cell[2462, 60, 3300, 78, 325, "Input",ExpressionUUID->"65b094aa-7a4e-495b-9493-2d282a3371cb"],
+Cell[CellGroupData[{
+Cell[5787, 142, 3009, 74, 304, "Input",ExpressionUUID->"8ffe8904-7a08-4a1f-a443-2ce9d9e8f02a"],
+Cell[8799, 218, 192, 3, 34, "Output",ExpressionUUID->"3c942f8b-ca46-43bc-a114-4c1489477fea"],
+Cell[8994, 223, 192, 3, 34, "Output",ExpressionUUID->"4554535f-a6d5-44e1-b323-462b70c9d342"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9223, 231, 3003, 74, 304, "Input",ExpressionUUID->"7f9ff420-071c-4217-9fbc-4b9eb93b9c80"],
+Cell[12229, 307, 169, 3, 34, "Output",ExpressionUUID->"936f2fa5-a536-41cc-8291-aeaa27e6c02c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12435, 315, 1575, 38, 157, "Input",ExpressionUUID->"890b9f5d-2c57-4853-b697-0b5c7bb8b8a8"],
+Cell[14013, 355, 193, 3, 34, "Output",ExpressionUUID->"c05ff64c-a7fb-4481-ae7f-76c5744ffaa0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14243, 363, 1846, 43, 178, "Input",ExpressionUUID->"8fc353a5-e139-4e6d-a645-3d604993da61"],
+Cell[16092, 408, 289, 5, 34, "Output",ExpressionUUID->"dc709efd-1e7e-4dfd-99fd-c1ffacf4e965"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16418, 418, 3003, 74, 304, "Input",ExpressionUUID->"a2361e19-84ff-4d53-9cb1-5bcbd0a8c746"],
+Cell[19424, 494, 169, 3, 34, "Output",ExpressionUUID->"c480d377-0887-4843-8ffb-fcb6f0d6acd6"],
+Cell[19596, 499, 171, 3, 94, "Output",ExpressionUUID->"baeecaf9-1bdf-4826-a63c-aee56cf4d200"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
