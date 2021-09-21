@@ -50,4 +50,6 @@ USER INSTRUCTIONS
     	⁃	Fig.S13,     All_Figs/FigS13.nb    
     	⁃	Fig.S14,     All_Figs/FigS14.nb    
     
+    ![alt text](https://github.com/SyntheticDynamics/SensorSpecies/blob/main/Figures/SS_calc_ex_in.png)
     
+Figures/SS_calc_ex_in.png
