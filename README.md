@@ -7,10 +7,10 @@ USER INSTRUCTIONS
 ##	I.	To calculate the sensor score, early-warning score and (q^*, r_1) predictions for a mutualistic system, and obtain the network diagram (Figure 2):
 1.	Save in “data/“ the system’s interaction matrix in csv format ("sys_name.csv”). The matrix must be rectangular and have plants as rows and animals as columns.
 
-3.	In “SensorScore_EWS_calc/Sensor_score_calc.nb” enter the filename (without the extension), in the field fn.
+3.	In “SensorScore_EWS_calc/Sensor_score_calc.nb” enter the filename (without the extension), in the field fn (for Genebra:).
 ![Screen Shot 2021-09-20 at 9 35 20 PM](https://user-images.githubusercontent.com/72633616/134099010-f72ca772-746c-4e3c-adc0-48b8815654ca.png)
 
-3.	Run the main function. The results will be shown inline.
+3.	Run the main function. The results will be shown inline (for Genebra:).
 	
 ![Screen Shot 2021-09-20 at 9 35 36 PM](https://user-images.githubusercontent.com/72633616/134099011-46e9a38f-5f73-4efe-ab70-0dfd65b06406.png)
 ![SS_calc_ex_out](https://user-images.githubusercontent.com/72633616/134098818-6158de3c-6140-4bc8-a72a-97620d2747f4.png)
