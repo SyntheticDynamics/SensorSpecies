@@ -39,14 +39,14 @@ kEnd = final realization number (must be > kStart)
 ##	III.	To analyze the time-series obtained after simulating a critical transition on a mutualistic system, and obtain the plots in Figures 2 and 3
 
  1.	Make sure that the interaction matrix is saved as in I.1, that the data is stored as indicated in II.4, and have (kStart kEnd) from II.2 handy
- 2.	Define kT: one particular realization to display (must be \in (kStart,kEnd]))
+ 2.	Define kT: one particular realization to display (must be \in (kStart,kEnd])
  3.	In “SensorScore_EWS_calc/EW_score_calc.nb” enter <br />
      ⁃	the filename (without the extension), in the field fn 	<br />
      ⁃	kStart, KEnd and kT in the fields of the same name <br />
  4.	Run the main function. The results will be shown inline.
 
 ##	IV.	To generate the plots in Figure 1
- 1.	run the script “All_Figs/Toy_Mutualistic.py”
+ 1.	Run the script “All_Figs/Toy_Mutualistic.py”
 
 ##	V.	To generate the plots in Figure 4 and Figures S6-S14, find the corresponding script using the list below, and follow the instructions on its README file:
  ⁃	Fig.4,      All_Figs/General_figs.nb    
